@@ -1,0 +1,24 @@
+[project]
+name = "toolforge-functional-runner"
+version = "1.0"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "prometheus-client",
+    "click",
+    "paramiko",
+]
+
+[project.scripts]
+toolforge-functional-runner = "toolforge_functional_runner.cli:run"
+
+[tool.poetry.group.test.dependencies]
+tox = "*"
+tox-current-env = "*"
+black = "*"
+ruff = "*"
+
+[tool.ruff]
+line-length = 120
+
+[tool.black]
+line-length = 120
