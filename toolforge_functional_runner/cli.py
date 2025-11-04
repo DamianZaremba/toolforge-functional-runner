@@ -15,6 +15,7 @@ from toolforge_functional_runner.environment import (
     setup_environment_venv,
     update_environment_venv,
     cleanup_tool_environment,
+    setup_tool_environment,
 )
 from toolforge_functional_runner.executor import ssh_connection
 from toolforge_functional_runner.metrics import registry, update_run_metrics, RunStatus, update_test_suite_metrics
@@ -38,6 +39,7 @@ def _execute_run(config: Config, ssh_key: str, update_environment: bool):
             cleanup_tool_environment(client, config.environment.tool, config.environment.project)
             update_environment_repo(client, config.environment.tool, config.environment.repo, config.repo)
 
+        setup_tool_environment(client, config.environment.tool, config.environment.project)
         test_suites = get_test_suites(client, config.environment.tool, config.environment.repo / config.repo.entrypoint)
         for suite_name, suite_components in test_suites.items():
             if suite_name in config.environment.skip_suites:

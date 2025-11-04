@@ -85,7 +85,16 @@ def cleanup_tool_environment(client: SSHClient, tool_name: str, project_path: Po
         f'find "{project_path.as_posix()}" -type f -iname "*.err" -delete;'
         f'find "{project_path.as_posix()}" -type f -iname "*.out" -delete; '
         f'find "{project_path.as_posix()}" -type f -iname "*.yaml" -delete; '
-        f'rm -f "{(project_path / "status").as_posix()}"; '
+        f'rm -f "{(project_path / "status").as_posix()}"',
+        True,
+    )
+
+
+def setup_tool_environment(client: SSHClient, tool_name: str, project_path: PosixPath) -> None:
+    logger.info(f"Ensuring public_html exists in {project_path}")
+    run_command_as_tool(
+        client,
+        tool_name,
         f'mkdir -p "{(project_path / "public_html").as_posix()}"',
         True,
     )
