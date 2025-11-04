@@ -1,0 +1,1 @@
+run: ./scripts/pack-entrypoint.sh

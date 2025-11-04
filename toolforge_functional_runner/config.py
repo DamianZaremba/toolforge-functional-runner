@@ -47,7 +47,7 @@ class Config:
     monitoring: Prometheus = Prometheus(port=int(os.environ.get("PROMETHEUS_PORT", "9091")))
     target: Target = Target(
         host=os.environ.get("TARGET_HOST", "login.toolforge.org"),
-        user=os.environ.get("TARGET_USER", "damian-scripts"),
+        user=os.environ.get("TARGET_USER", "damian-test"),
         ssh_fingerprints=[
             paramiko.RSAKey(
                 data=b64decode(
@@ -63,9 +63,9 @@ class Config:
         ],
     )
     environment: Environment = Environment(
-        tool=os.environ.get("TARGET_TOOL", "test-damian"),
+        tool=os.environ.get("TARGET_TOOL", "toolforge-functional-test"),
         skip_suites=["admin"],
-        project=PosixPath(f'/data/project/{os.environ.get("TARGET_TOOL", "test-damian")}'),
-        repo=PosixPath(f'/data/project/{os.environ.get("TARGET_TOOL", "test-damian")}/toolforge-deploy'),
-        venv=PosixPath(f'/data/project/{os.environ.get("TARGET_TOOL", "test-damian")}/venv'),
+        project=PosixPath(f'/data/project/{os.environ.get("TARGET_TOOL", "toolforge-functional-test")}'),
+        repo=PosixPath(f'/data/project/{os.environ.get("TARGET_TOOL", "toolforge-functional-test")}/toolforge-deploy'),
+        venv=PosixPath(f'/data/project/{os.environ.get("TARGET_TOOL", "toolforge-functional-test")}/venv'),
     )

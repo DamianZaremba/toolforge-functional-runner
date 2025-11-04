@@ -85,8 +85,7 @@ def cleanup_tool_environment(client: SSHClient, tool_name: str, project_path: Po
         f'find "{project_path.as_posix()}" -type f -iname "*.err" -delete;'
         f'find "{project_path.as_posix()}" -type f -iname "*.out" -delete; '
         f'find "{project_path.as_posix()}" -type f -iname "*.yaml" -delete; '
-        f'rm -f "{(project_path / "status").as_posix()}"',
-        True,
+        f'rm -f "{(project_path / "status").as_posix()}"'
     )
 
 

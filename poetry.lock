@@ -542,10 +542,7 @@ files = [
 ]
 
 [package.dependencies]
-cffi = [
-    {version = ">=1.4.1", markers = "platform_python_implementation != \"PyPy\" and python_version < \"3.14\""},
-    {version = ">=2.0.0", markers = "platform_python_implementation != \"PyPy\" and python_version >= \"3.14\""},
-]
+cffi = {version = ">=1.4.1", markers = "platform_python_implementation != \"PyPy\" and python_version < \"3.14\""}
 
 [package.extras]
 docs = ["sphinx (<7)", "sphinx_rtd_theme"]
@@ -678,5 +675,5 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 
 [metadata]
 lock-version = "2.1"
-python-versions = ">=3.12,<4.0"
-content-hash = "bb4e3cda410e9b610c6da72ce1ed068b6bb75ca18cdeb584f5437883315e9b86"
+python-versions = ">=3.12,<3.14"
+content-hash = "2ba77dfaa340fe60458a483ab2393ae9fcd80e1ff87c8c085785f053346db8be"
