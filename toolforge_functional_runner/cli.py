@@ -74,8 +74,7 @@ def _execute_run(config: Config, ssh_key: str, update_environment: bool):
                     test_status,
                 )
 
-                if test_status != RunStatus.FAILURE:
-                    update_test_suite_metrics(suite_name, component_name, test_results)
+                update_test_suite_metrics(suite_name, component_name, test_results)
 
 
 @click.option("--interval", type=int, default=60, help="Time to wait between runs")
