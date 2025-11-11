@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       tox_lint_envs: ${{ steps.list_envs.outputs.tox_lint_envs }}
+      image_url: ${{ steps.target_image.outputs.image_url }}
     steps:
       - uses: actions/checkout@v5
 
@@ -27,6 +28,10 @@ jobs:
             jq -Rnc '[inputs | sub("\\.yml$"; "")]'
           )
           echo "tox_lint_envs=${tox_lint_envs}" >> $GITHUB_OUTPUT
+
+      - id: target_image
+        run: |
+          echo "image_url=${GITHUB_REPOSITORY,,}" >> "${GITHUB_ENV}"
 
   execute-lint:
     runs-on: ubuntu-latest
@@ -75,7 +80,7 @@ jobs:
       - name: Build container
         uses: infrabits/ci-pack@main
         with:
-          image: ghcr.io/${{ github.repository }}:${{ github.sha }}
+          image: ghcr.io/${{ needs.setup-build.outputs.image_url }}:${{ github.sha }}
           builder: tools-harbor.wmcloud.org/toolforge/heroku-builder:24_0.20.7
 
       - name: Authenticate to ghcr.io
@@ -85,4 +90,4 @@ jobs:
       - name: Publish container
         shell: bash
         run: |
-          docker push ghcr.io/${{ github.repository }}:${{ github.sha }}
+          docker push ghcr.io/${{ needs.setup-build.outputs.image_url }}:${{ github.sha }}
