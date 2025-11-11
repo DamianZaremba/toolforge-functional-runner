@@ -31,7 +31,8 @@ jobs:
 
       - id: target_image
         run: |
-          echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]' >> $GITHUB_OUTPUT
+          repo=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')
+          echo "image_url=ghcr.io/${repo}:${{ github.sha }}" >> $GITHUB_OUTPUT
 
   execute-lint:
     runs-on: ubuntu-latest
@@ -80,7 +81,7 @@ jobs:
       - name: Build container
         uses: infrabits/ci-pack@main
         with:
-          image: ghcr.io/${{ needs.setup-build.outputs.image_url }}:${{ github.sha }}
+          image: ${{ needs.setup-build.outputs.image_url }}
           builder: tools-harbor.wmcloud.org/toolforge/heroku-builder:24_0.20.7
 
       - name: Authenticate to ghcr.io
@@ -90,4 +91,4 @@ jobs:
       - name: Publish container
         shell: bash
         run: |
-          docker push ghcr.io/${{ needs.setup-build.outputs.image_url }}:${{ github.sha }}
+          docker push ${{ needs.setup-build.outputs.image_url }}
