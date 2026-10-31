@@ -552,18 +552,18 @@ packaging = ">=25"
 
 [[package]]
 name = "python-discovery"
-version = "1.6.0"
+version = "1.9.0"
 description = "Python interpreter discovery"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["test"]
 files = [
-    {file = "python_discovery-1.6.0-py3-none-any.whl", hash = "sha256:d4e244cf17b8b29819ed78003d55fbacf86eda23425b075454fff9271b79377a"},
-    {file = "python_discovery-1.6.0.tar.gz", hash = "sha256:6393b4eae1be8b2182670635e7baff89ac21cb9f8e86fd1ff40c7b1144febb4c"},
+    {file = "python_discovery-1.9.0-py3-none-any.whl", hash = "sha256:fb65edfff3541b7ceb3a39be334a0f69f4cb5148287a053e1874748742fda93b"},
+    {file = "python_discovery-1.9.0.tar.gz", hash = "sha256:88beb57e51b919c30f303b053ec41359298ca349192035b0a802c76347ae96d7"},
 ]
 
 [package.dependencies]
-filelock = ">=3.15.4"
+filelock = ">=3.16.1"
 
 [[package]]
 name = "pytokens"
@@ -662,14 +662,14 @@ files = [
 
 [[package]]
 name = "tox"
-version = "4.61.2"
+version = "4.67.5"
 description = "tox is a generic virtualenv management and test command line tool"
 optional = false
-python-versions = ">=3.10"
+python-versions = ">=3.11"
 groups = ["test"]
 files = [
-    {file = "tox-4.61.2-py3-none-any.whl", hash = "sha256:262efa52b735004dcef04ae4c934614ec4e5c61319a14d1e762c18db7fdb82c3"},
-    {file = "tox-4.61.2.tar.gz", hash = "sha256:463b6eeaaf0929d60b4f7a87b26f4a7a764fe9832a74bf50b4e9d259b6a8e905"},
+    {file = "tox-4.67.5-py3-none-any.whl", hash = "sha256:2ce2844114ff4c50024d9bbdea19a2f3cabe66736d8cf6a3398ad9a3b3ce60fd"},
+    {file = "tox-4.67.5.tar.gz", hash = "sha256:f1872e30d89c8d18cbdf3b93c4c7dc04d4f3928c0af413e9ae5b71ba3f1c438d"},
 ]
 
 [package.dependencies]
@@ -680,7 +680,7 @@ packaging = ">=26"
 platformdirs = ">=4.9.4"
 pluggy = ">=1.6"
 pyproject-api = ">=1.10"
-python-discovery = ">=1.4.4"
+python-discovery = ">=1.9"
 tomli-w = ">=1.2"
 virtualenv = ">=21.1"
 
