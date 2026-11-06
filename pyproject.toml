@@ -3,19 +3,19 @@ name = "toolforge-functional-runner"
 version = "1.0"
 requires-python = ">=3.13"
 dependencies = [
-    "prometheus-client",
-    "click",
-    "paramiko",
+    "prometheus-client (>=0.26.0,<0.27.0)",
+    "click (>=8.5.0,<9.0.0)",
+    "paramiko (>=5.1.0,<6.0.0)",
 ]
 
 [project.scripts]
 toolforge-functional-runner = "toolforge_functional_runner.cli:run"
 
 [tool.poetry.group.test.dependencies]
-tox = "*"
-tox-current-env = "*"
-black = "*"
-ruff = "*"
+tox = "^4.67.12"
+tox-current-env = "^0.0.17"
+black = "^26.10.1"
+ruff = "^0.17.4"
 
 [tool.ruff]
 line-length = 120
